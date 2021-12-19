@@ -102,15 +102,106 @@
         width: 50%;
     }
 
+    .right img {
+        margin-left: 100px;
+        margin-top: 100px;
+        width: 57%;
+    }
+
     .socials {
         display: flex;
         justify-content: center;
-        margin-top: 180px;
+        margin-top: 130px;
     }
 
     .socials i {
         padding: 5px;
         color: var(--color-gold);
+    }
+
+    .left img {
+        width: 90%;
+    }
+
+    .right .text-2 {
+        width: 654px;
+        margin-top: 200px;
+        margin-left: 100px;
+    }
+
+    .right h1 {
+        font-weight: bold;
+        font-size: 64px;
+        margin-bottom: 50px;
+    }
+
+    .right p {
+        font-size: 36px;
+        color: var(--color-gray);
+    }
+
+    .right button {
+        margin-top: 50px;
+        background-color: var(--color-black);
+        color: var(--color-white);
+        outline: 0;
+        border: none;
+        width: 250px;
+        height: 65px;
+    }
+
+    .right button a {
+        font-weight: 400;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 24px;
+    }
+
+    .left-2 {
+        width: 50%;
+    }
+
+    .left-2 h1 {
+        font-weight: bold;
+        font-size: 64px;
+        margin-bottom: 50px;
+        color: var(--color-gold);
+    }
+
+    .left-2 p {
+        font-size: 36px;
+        color: var(--color-gray);
+    }
+
+    .left-2 button {
+        margin-top: 50px;
+        background-color: var(--color-gold);
+        color: var(--color-white);
+        outline: 0;
+        border: none;
+        width: 250px;
+        height: 65px;
+    }
+
+    .left-2 button a {
+        font-weight: 400;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 24px;
+    }
+
+    .left-2 .text-2 {
+        width: 654px;
+        margin-top: 200px;
+        margin-left: 100px;
+    }
+
+    .right-2 {
+        width: 50%;
+    }
+
+    .right-2 img {
+        width: 90%;
     }
 </style>
 {% endblock style %}
@@ -146,6 +237,34 @@
     <i class="ri-facebook-fill"></i>
     <i class="ri-instagram-fill"></i>
     <i class="ri-twitter-fill"></i>
+</div>
+<div class="container">
+    <div class="left">
+        {% load static %}
+        <img src="{% static 'Store/gray-table-blur.png' %}" alt="image">
+    </div>
+    <div class="right">
+        <div class="text-2">
+            <h1>Lorem Ipsum</h1>
+            <p>Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem
+                IpsumLorem Ipsum</p>
+            <button><a>Dodaj do koszyka</a></button>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="left-2">
+        <div class="text-2">
+            <h1>Lorem Ipsum</h1>
+            <p>Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem
+                IpsumLorem Ipsum</p>
+            <button><a>Dodaj do koszyka</a></button>
+        </div>
+    </div>
+    <div class="right-2">
+        {% load static %}
+        <img src="{% static 'Store/gold-table-blur.png' %}" alt="image">
+    </div>
 </div>
 {% endblock content %}
 
