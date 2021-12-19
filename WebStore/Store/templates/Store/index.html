@@ -57,31 +57,45 @@
         text-decoration: none;
     }
 
-    .container {
+    .split {
         display: flex;
+        flex-direction: column;
     }
 
-    .left {
-        width: 50%;
+    .container {
+        margin-inline: auto;
+        width: min(100%, 110rem);
+        margin-top: 50px;
     }
 
-    .left .text {
-        width: 750px;
-        margin: 100px;
+    .text-2 {
+        margin-top: 8rem;
     }
 
-    .left h1 {
-        font-weight: bold;
-        font-size: 64px;
-        margin-bottom: 50px;
+    .text-3 {
+        margin-top: 8rem;
     }
 
-    .left p {
-        font-size: 36px;
+    .text-3 h1 {
+        color: var(--color-gold);
+    }
+
+    .text-1 {
+        margin-top: 6rem;
+    }
+
+    .text h1 {
+        font-size: 4rem;
+        margin-bottom: 5rem;
+    }
+
+    .text p {
+        font-size: 2rem;
         color: var(--color-gray);
+        width: 750px;
     }
 
-    .left button {
+    .text button {
         margin-top: 50px;
         background-color: var(--color-black);
         color: var(--color-white);
@@ -91,27 +105,34 @@
         height: 65px;
     }
 
-    .left button a {
+    .text button a {
         font-weight: 600;
         text-align: center;
         vertical-align: middle;
         font-size: 24px;
     }
 
-    .right {
-        width: 50%;
+    .text-2 button a {
+        font-weight: 400;
     }
 
-    .right img {
-        margin-left: 100px;
-        margin-top: 100px;
-        width: 57%;
+    .text-3 button {
+        background-color: var(--color-gold);
+    }
+
+    .text-3 button a {
+        font-weight: 400;
+    }
+
+    .picture img {
+        width: 635px;
+        height: 635px;
     }
 
     .socials {
         display: flex;
         justify-content: center;
-        margin-top: 130px;
+        margin: 100px 0px 100px 0px;
     }
 
     .socials i {
@@ -119,89 +140,96 @@
         color: var(--color-gold);
     }
 
-    .left img {
-        width: 90%;
-    }
-
-    .right .text-2 {
-        width: 654px;
-        margin-top: 200px;
-        margin-left: 100px;
-    }
-
-    .right h1 {
-        font-weight: bold;
-        font-size: 64px;
-        margin-bottom: 50px;
-    }
-
-    .right p {
-        font-size: 36px;
-        color: var(--color-gray);
-    }
-
-    .right button {
-        margin-top: 50px;
-        background-color: var(--color-black);
-        color: var(--color-white);
-        outline: 0;
-        border: none;
-        width: 250px;
-        height: 65px;
-    }
-
-    .right button a {
-        font-weight: 400;
-        text-align: center;
-        vertical-align: middle;
-        font-size: 24px;
-    }
-
-    .left-2 {
-        width: 50%;
-    }
-
-    .left-2 h1 {
-        font-weight: bold;
-        font-size: 64px;
-        margin-bottom: 50px;
-        color: var(--color-gold);
-    }
-
-    .left-2 p {
-        font-size: 36px;
-        color: var(--color-gray);
-    }
-
-    .left-2 button {
-        margin-top: 50px;
+    footer {
         background-color: var(--color-gold);
+        padding: 15px;
         color: var(--color-white);
-        outline: 0;
-        border: none;
-        width: 250px;
-        height: 65px;
+        font-size: 14px;
     }
 
-    .left-2 button a {
-        font-weight: 400;
-        text-align: center;
-        vertical-align: middle;
-        font-size: 24px;
+    footer p {
+        margin-left: 150px;
     }
 
-    .left-2 .text-2 {
-        width: 654px;
-        margin-top: 200px;
-        margin-left: 100px;
+    @media (min-width:40em) {
+        .split {
+            flex-direction: row;
+        }
+
+        .split>* {
+            flex-basis: 100%;
+        }
+
+        .split>*+* {
+            margin-left: 2em;
+        }
     }
 
-    .right-2 {
-        width: 50%;
-    }
+    @media screen and (max-width: 768px) {
+        .text button {
+            margin-top: 50px;
+            background-color: var(--color-black);
+            color: var(--color-white);
+            outline: 0;
+            border: none;
+            width: 220px;
+            height: 55px;
+        }
 
-    .right-2 img {
-        width: 90%;
+        .text button a {
+            font-weight: 600;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 20px;
+        }
+
+        .text-2 button a {
+            font-weight: 400;
+        }
+
+        .text-3 button {
+            background-color: var(--color-gold);
+        }
+
+        .text-3 button a {
+            font-weight: 400;
+        }
+
+        .text h1 {
+            font-size: 3rem;
+        }
+
+        .text p {
+            font-size: 1.5rem;
+            width: 100%;
+            padding: 0px 10px 0px 10px;
+        }
+
+        .container {
+            margin-top: 0px;
+            text-align: center;
+        }
+
+        .picture {
+            margin-top: 25px;
+        }
+
+        .picture img {
+            width: 335px;
+            height: 335px;
+        }
+
+        footer {
+            background-color: var(--color-gold);
+            padding: 10px;
+            color: var(--color-white);
+            font-size: 12px;
+        }
+
+        footer p {
+            margin-left: 0px;
+            text-align: center;
+        }
     }
 </style>
 {% endblock style %}
@@ -220,57 +248,66 @@
 
 {% block content %}
 <div class="container">
-    <div class="left">
-        <div class="text">
+    <div class="split">
+        <div class="text text-1">
             <h1>Lorem Ipsum</h1>
             <p>Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem
                 IpsumLorem Ipsum</p>
             <button><a>Zobacz Ofertę</a></button>
         </div>
-    </div>
-    <div class="right">
-        {% load static %}
-        <img src="{% static 'Store/gold-table.jpg' %}" alt="image">
+        <div class="picture">
+            {% load static %}
+            <img src="{% static 'Store/gold-table.jpg' %}" alt="image">
+        </div>
     </div>
 </div>
+
 <div class="socials">
     <i class="ri-facebook-fill"></i>
     <i class="ri-instagram-fill"></i>
     <i class="ri-twitter-fill"></i>
 </div>
+
 <div class="container">
-    <div class="left">
-        {% load static %}
-        <img src="{% static 'Store/gray-table-blur.png' %}" alt="image">
-    </div>
-    <div class="right">
-        <div class="text-2">
+    <div class="split">
+        <div>
+            {% load static %}
+            <img src="{% static 'Store/gray-table-blur.png' %}" alt="image" width="90%">
+        </div>
+        <div class="text text-2">
             <h1>Lorem Ipsum</h1>
-            <p>Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem
+            <p>Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem
+                IpsumLorem
                 IpsumLorem Ipsum</p>
             <button><a>Dodaj do koszyka</a></button>
         </div>
     </div>
 </div>
+
 <div class="container">
-    <div class="left-2">
-        <div class="text-2">
+    <div class="split">
+        <div class="text text-3">
             <h1>Lorem Ipsum</h1>
-            <p>Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem
+            <p>Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem
+                IpsumLorem
                 IpsumLorem Ipsum</p>
             <button><a>Dodaj do koszyka</a></button>
         </div>
-    </div>
-    <div class="right-2">
-        {% load static %}
-        <img src="{% static 'Store/gold-table-blur.png' %}" alt="image">
+        <div>
+            {% load static %}
+            <img src="{% static 'Store/gold-table-blur.png' %}" alt="image" width="90%">
+        </div>
     </div>
 </div>
 {% endblock content %}
 
 
 {% block footer %}
-
+<footer>
+    <div>
+        <p>© 2021 Nazwa firmy Wszelkie prawa zastrzeżone</p>
+    </div>
+</footer>
 {% endblock footer %}
 
 {% block script %}
