@@ -299,6 +299,16 @@
         </div>
     </div>
 </div>
+<div class="contactForm">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="text" name="name" id="name" placeholder="Imie i Nazwisko">
+        <input type="text" name="email" id="email" placeholder="Email">
+        <input type="text" name="phone" id="phone" placeholder="Numer Telefonu">
+        <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Wiadomosc"></textarea>
+        <button type="submit">Wyslij</button>
+    </form>
+</div>
 {% endblock content %}
 
 
