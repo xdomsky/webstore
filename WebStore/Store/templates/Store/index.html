@@ -415,82 +415,91 @@
 
 {% block content %}
 <button onclick="topFunction()" id="btn-top"><i class="ri-arrow-up-line"></i></button>
-<div class="container">
-    <div class="split">
-        <div class="text text-1">
-            <h1>Lorem Ipsum</h1>
-            <p>Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem
-                IpsumLorem Ipsum</p>
-            <button><a>Zobacz Ofertę</a></button>
+<div data-aos="fade-left" data-aos-duration="1000">
+    <div class="container">
+        <div class="split">
+            <div class="text text-1">
+                <h1>Lorem Ipsum</h1>
+                <p>Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem
+                    IpsumLorem
+                    IpsumLorem Ipsum</p>
+                <button><a>Zobacz Ofertę</a></button>
+            </div>
+            <div class="picture">
+                {% load static %}
+                <img src="{% static 'Store/gold-table.jpg' %}" alt="image">
+            </div>
         </div>
-        <div class="picture">
-            {% load static %}
-            <img src="{% static 'Store/gold-table.jpg' %}" alt="image">
+    </div>
+</div>
+<div data-aos="zoom-in" data-aos-duration="1000">
+    <div class="socials">
+        <i class="ri-facebook-fill"></i>
+        <i class="ri-instagram-fill"></i>
+        <i class="ri-twitter-fill"></i>
+    </div>
+</div>
+<div data-aos="fade-right" data-aos-duration="1000">
+    <div class="container">
+        <div class="split">
+            <div class="picture">
+                {% load static %}
+                <img src="{% static 'Store/gray-table-blur.png' %}" alt="image">
+            </div>
+            <div class="text text-2">
+                <h1>Lorem Ipsum</h1>
+                <p>Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem
+                    IpsumLorem
+                    IpsumLorem Ipsum</p>
+                <button><a>Dodaj do koszyka</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+<div data-aos="fade-left" data-aos-duration="1000">
+    <div class="container">
+        <div class="split">
+            <div class="text text-3">
+                <h1>Lorem Ipsum</h1>
+                <p>Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem
+                    IpsumLorem
+                    IpsumLorem Ipsum</p>
+                <button><a>Dodaj do koszyka</a></button>
+            </div>
+            <div class="picture">
+                {% load static %}
+                <img src="{% static 'Store/gold-table-blur.png' %}" alt="image">
+            </div>
+        </div>
+    </div>
+</div>
+<div data-aos="zoom-in" data-aos-duration="1000">
+    <div class="container contact">
+        <div class="split">
+            <div class="contactForm">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="name" id="name" placeholder="Imie i Nazwisko">
+                    <input type="text" name="email" id="email" placeholder="Email">
+                    <input type="text" name="phone" id="phone" placeholder="Numer Telefonu">
+                    <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Wiadomosc"></textarea><br>
+                    <button type="submit">Wyślij</button>
+                </form>
+            </div>
+            <div class="contact-us">
+                <h1>Kontakt do nas</h1>
+                <p>Lorem ipsum</p>
+                <p>Lorem ipsum</p>
+                <p>Lorem ipsum</p>
+                <p>Lorem ipsum</p>
+                <i class="ri-facebook-fill"></i>
+                <i class="ri-instagram-fill"></i>
+                <i class="ri-twitter-fill"></i>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="socials">
-    <i class="ri-facebook-fill"></i>
-    <i class="ri-instagram-fill"></i>
-    <i class="ri-twitter-fill"></i>
-</div>
-
-<div class="container">
-    <div class="split">
-        <div class="picture">
-            {% load static %}
-            <img src="{% static 'Store/gray-table-blur.png' %}" alt="image">
-        </div>
-        <div class="text text-2">
-            <h1>Lorem Ipsum</h1>
-            <p>Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem
-                IpsumLorem
-                IpsumLorem Ipsum</p>
-            <button><a>Dodaj do koszyka</a></button>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="split">
-        <div class="text text-3">
-            <h1>Lorem Ipsum</h1>
-            <p>Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem
-                IpsumLorem
-                IpsumLorem Ipsum</p>
-            <button><a>Dodaj do koszyka</a></button>
-        </div>
-        <div class="picture">
-            {% load static %}
-            <img src="{% static 'Store/gold-table-blur.png' %}" alt="image">
-        </div>
-    </div>
-</div>
-<div class="container contact">
-    <div class="split">
-        <div class="contactForm">
-            <form action="" method="POST">
-                {% csrf_token %}
-                <input type="text" name="name" id="name" placeholder="Imie i Nazwisko">
-                <input type="text" name="email" id="email" placeholder="Email">
-                <input type="text" name="phone" id="phone" placeholder="Numer Telefonu">
-                <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Wiadomosc"></textarea><br>
-                <button type="submit">Wyślij</button>
-            </form>
-        </div>
-        <div class="contact-us">
-            <h1>Kontakt do nas</h1>
-            <p>Lorem ipsum</p>
-            <p>Lorem ipsum</p>
-            <p>Lorem ipsum</p>
-            <p>Lorem ipsum</p>
-            <i class="ri-facebook-fill"></i>
-            <i class="ri-instagram-fill"></i>
-            <i class="ri-twitter-fill"></i>
-        </div>
-    </div>
-</div>
 {% endblock content %}
 
 
@@ -518,5 +527,9 @@
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
     }
+</script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init();
 </script>
 {% endblock script %}
