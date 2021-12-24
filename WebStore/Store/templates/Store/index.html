@@ -27,6 +27,14 @@
         transition: 0.5s;
     }
 
+    .blur {
+        z-index: -999;
+        position: absolute;
+        height: 100%;
+        position: fixed;
+        opacity: 75%;
+    }
+
     #btn-top {
         display: none;
         position: fixed;
@@ -60,6 +68,8 @@
         transition: 0.5s;
         padding: 10px 30px;
         flex-wrap: wrap;
+        position: absolute;
+        background-color: #ededed;
     }
 
     .navbar ul {
@@ -88,7 +98,7 @@
     .container {
         margin-inline: auto;
         width: min(90%, 110rem);
-        margin-top: 50px;
+        margin-top: 120px;
     }
 
     .text-2 {
@@ -198,7 +208,7 @@
         width: 450px;
         height: 35px;
         margin-top: 10px;
-        background-color: #E0E0E0;
+        background-color: #ededed;
         color: #3D3D3D;
         outline: 0;
         border: none;
@@ -210,7 +220,7 @@
         font-size: 20px;
         margin-top: 10px;
         width: 450px;
-        background-color: #E0E0E0;
+        background-color: #ededed;
         color: #3D3D3D;
         outline: 0;
         border: none;
@@ -421,6 +431,10 @@
 
 {% block content %}
 <button onclick="topFunction()" id="btn-top"><i class="ri-arrow-up-line"></i></button>
+<div class="blur">
+    {% load static %}
+    <img src="{% static 'Store/blur.png' %}" alt="image">
+</div>
 <div data-aos="fade-left" data-aos-duration="1000">
     <div class="container">
         <div class="split">
@@ -433,7 +447,7 @@
             </div>
             <div class="picture">
                 {% load static %}
-                <img src="{% static 'Store/gold-table.jpg' %}" alt="image">
+                <img src="{% static 'Store/gold-table2.jpg' %}" alt="image">
             </div>
         </div>
     </div>
@@ -450,7 +464,7 @@
         <div class="split">
             <div class="picture">
                 {% load static %}
-                <img src="{% static 'Store/gray-table-blur.png' %}" alt="image">
+                <img src="{% static 'Store/gray-table-blur2.png' %}" alt="image">
             </div>
             <div class="text text-2">
                 <h1>Lorem Ipsum</h1>
@@ -474,7 +488,7 @@
             </div>
             <div class="picture">
                 {% load static %}
-                <img src="{% static 'Store/gold-table-blur.png' %}" alt="image">
+                <img src="{% static 'Store/gold-table-blur2.png' %}" alt="image">
             </div>
         </div>
     </div>
