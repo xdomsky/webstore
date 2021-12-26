@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+
+
+
+
+
+
+
+
+{% block content %}
+<div class="content">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div class="form-div">
+            <div>
+                <h2>{{form.username.label}}</h2>
+                <p>{{form.username}}</p>
+            </div>
+            <div>
+                <h2>{{form.email.label}}</h2>
+                <p>{{form.email}}</p>
+            </div>
+            <div>
+                <h2>{{form.password1.label}}</h2>
+                <p>{{form.password1}}</p>
+            </div>
+            <div>
+                <h2>{{form.password2.label}}</h2>
+                <p>{{form.password2}}</p>
+            </div><br>
+            <div>
+                <button type='submit'>Create Account</button>
+            </div>
+            <div>
+                {{form.errors}}
+            </div>
+            <div>
+                <p>Already have an account? <a href="{% url 'Store:login' %}">Sign In</a></p>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}
+    

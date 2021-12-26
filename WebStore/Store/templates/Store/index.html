@@ -417,13 +417,12 @@
 </style>
 {% endblock style %}
 
-
 {% block nav %}
 <div class="navbar">
     <h1>Website Logo</h1>
     <ul class="navul" id="navul">
         <li><a><i class="ri-shopping-cart-line"></i></a></li>
-        <li><a><i class="ri-account-circle-fill"></i></a></li>
+        <li><a href="{% url 'Store:account' %}"><i class="ri-account-circle-fill"></i></a></li>
     </ul>
 </div>
 {% endblock nav %}
