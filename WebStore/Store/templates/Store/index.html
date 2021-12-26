@@ -59,6 +59,14 @@
         font-size: 45px;
     }
 
+    .navul a {
+        color: var(--color-black);
+    }
+
+    .navul a:visited {
+        color: var(--color-black);
+    }
+
     .navbar {
         color: var(--color-black);
         width: 100%;
@@ -70,6 +78,15 @@
         flex-wrap: wrap;
         position: absolute;
         background-color: #ededed;
+    }
+
+    .navbar a {
+        color: var(--color-black);
+        text-decoration: none;
+    }
+
+    .navbar a:visited {
+        color: var(--color-black);
     }
 
     .navbar ul {
@@ -419,7 +436,7 @@
 
 {% block nav %}
 <div class="navbar">
-    <h1>Website Logo</h1>
+    <h1><a href="{% url 'Store:index' %}">Website Logo</a></h1>
     <ul class="navul" id="navul">
         <li><a><i class="ri-shopping-cart-line"></i></a></li>
         <li><a href="{% url 'Store:account' %}"><i class="ri-account-circle-fill"></i></a></li>
