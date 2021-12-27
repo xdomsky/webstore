@@ -5,7 +5,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,700&display=swap');
 
     :root {
-        --color-gold: #DFBD69;
+        --color-gold: #a0884c;
         --color-black: #000;
         --color-white: #FFF;
         --color-gray: #8D8D8D;
@@ -19,6 +19,13 @@
         overflow-x: hidden;
         scroll-behavior: smooth;
         transition: 0.5s;
+    }
+
+    .blur {
+        z-index: -999;
+        position: absolute;
+        position: fixed;
+        opacity: 75%;
     }
 
     #btn-top {
@@ -46,15 +53,15 @@
     }
 
     .navul a {
-        color: var(--color-black);
+        color: var(--color-white);
     }
 
     .navul a:visited {
-        color: var(--color-black);
+        color: var(--color-white);
     }
 
     .navbar {
-        color: var(--color-black);
+        color: var(--color-white);
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -63,16 +70,16 @@
         padding: 10px 30px;
         flex-wrap: wrap;
         position: absolute;
-        background-color: #ededed;
+        background-color: var(--color-gold);
     }
 
     .navbar a {
-        color: var(--color-black);
+        color: var(--color-white);
         text-decoration: none;
     }
 
     .navbar a:visited {
-        color: var(--color-black);
+        color: var(--color-white);
     }
 
     .navbar ul {
@@ -137,8 +144,13 @@
         font-size: 16px;
     }
 
+    .content p {
+        color: var(--color-white);
+    }
+
     h2 {
         font-weight: 600;
+        color: var(--color-white);
     }
 
     footer div {
@@ -157,6 +169,10 @@
     }
 
     @media screen and (max-width: 768px) {
+        i {
+            font-size: 35px;
+        }
+
         #btn-top {
             display: none;
             position: fixed;
@@ -165,8 +181,8 @@
             z-index: 1;
             border: none;
             outline: none;
-            background-color: var(--color-black);
-            color: var(--color-white);
+            background-color: var(--color-white);
+            color: var(--color-black);
             cursor: pointer;
             padding: 10px;
             border-radius: 50%;
@@ -204,6 +220,10 @@
 
 {% block content %}
 <button onclick="topFunction()" id="btn-top"><i class="ri-arrow-up-line"></i></button>
+<div class="blur">
+    {% load static %}
+    <img src="{% static 'Store/gold-blur.png' %}" alt="image">
+</div>
 <div class="content">
     <form action="" method="post">
         {% csrf_token %}
@@ -227,7 +247,7 @@
 
             </div>
             <div>
-                <p>Nie masz jeszcze konta? <a href="{% url 'Store:register' %}">Zarejestruj!</a></p>
+                <p>Nie masz jeszcze konta? <a href="{% url 'Store:register' %}">Zarejestruj się!</a></p>
             </div>
         </div>
     </form>
