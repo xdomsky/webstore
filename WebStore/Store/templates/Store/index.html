@@ -111,6 +111,19 @@
         text-decoration: none;
     }
 
+    #cart-total {
+        position: absolute;
+        top: 0;
+        display: block;
+        text-align: center;
+        color: #fff;
+        background-color: red;
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        font-size: 14px;
+    }
+
     .split {
         display: flex;
         flex-direction: column;
@@ -423,6 +436,7 @@
     <h1><a href="{% url 'Store:index' %}">Website Logo</a></h1>
     <ul class="navul" id="navul">
         <li><a href="{% url 'Store:cart' %}"><i class="ri-shopping-cart-line"></i></a></li>
+        <p id="cart-total">0</p>
         <li><a href="{% url 'Store:account' %}"><i class="ri-account-circle-fill"></i></a></li>
     </ul>
 </div>
@@ -471,7 +485,7 @@
                 <p>Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem
                     IpsumLorem
                     IpsumLorem Ipsum</p>
-                <button><a>Dodaj do koszyka</a></button>
+                <button data-product="{{product.id}}" data-action="add"><a>Dodaj do koszyka</a></button>
             </div>
         </div>
     </div>
@@ -484,7 +498,7 @@
                 <p>Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem
                     IpsumLorem
                     IpsumLorem Ipsum</p>
-                <button><a>Dodaj do koszyka</a></button>
+                <button data-product="{{product.id}}" data-action="add"><a>Dodaj do koszyka</a></button>
             </div>
             <div class="picture">
                 {% load static %}
@@ -546,6 +560,70 @@
     function topFunction() {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
+    }
+
+    var updateBtns = document.getElementsByClassName('update-cart')
+
+    for (i = 0; i < updateBtns.length; i++) {
+        updateBtns[i].addEventListener('click', function () {
+            var productId = this.dataset.product
+            var action = this.dataset.action
+            console.log('productId:', productId, 'Action:', action)
+            console.log('USER:', user)
+
+            if (user == 'AnonymousUser') {
+                addCookieItem(productId, action)
+            } else {
+                updateUserOrder(productId, action)
+            }
+        })
+    }
+
+    function updateUserOrder(productId, action) {
+        console.log('User is authenticated, sending data...')
+
+        var url = '/update_item/'
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken,
+            },
+            body: JSON.stringify({ 'productId': productId, 'action': action })
+        })
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                location.reload()
+            });
+    }
+
+    function addCookieItem(productId, action) {
+        console.log('User is not authenticated')
+
+        if (action == 'add') {
+            if (cart[productId] == undefined) {
+                cart[productId] = { 'quantity': 1 }
+
+            } else {
+                cart[productId]['quantity'] += 1
+            }
+        }
+
+        if (action == 'remove') {
+            cart[productId]['quantity'] -= 1
+
+            if (cart[productId]['quantity'] <= 0) {
+                console.log('Item should be deleted')
+                delete cart[productId];
+            }
+        }
+        console.log('CART:', cart)
+        document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
+
+        location.reload()
     }
 </script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
