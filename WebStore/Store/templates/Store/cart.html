@@ -324,12 +324,12 @@
             <br>
             <div class="space">
                 <div>
-                    <h5>Produkty: <strong>3</strong></h5>
+                    <h5>Produkty: <strong>2</strong></h5>
                 </div>
                 <div>
                     <h5>Razem:<strong> 4200 PLN</strong></h5>
                 </div>
-                <div class="space-btn"><a>Checkout</a></div>
+                <div class="space-btn"><a href="{% url 'Store:checkout' %}}">Checkout</a></div>
             </div>
         </div>
 
@@ -367,42 +367,6 @@
             </div>
         </div>
     </div>
-    <div>
-
-    </div>
-
-    <!-- <div class="content">
-    <h1>Konto</h1>
-    <div class="inputs">
-        <p>{{user.email}}</p>
-    </div>
-    <h1>Dostawa</h1>
-    <div class="inputs">
-        <input type="radio" id="q1" />
-        <div class="margins">
-            <label for="q1">Kurier - InPost</label>
-        </div>
-    </div>
-    <div class="inputs">
-        <input type="radio" id="q2" />
-        <div class="margins">
-            <label for="q2">Odbiór osobisty</label>
-        </div>
-    </div>
-    <h1>Płatność</h1>
-    <div class="inputs">
-        <input type="radio" id="q3" />
-        <div class="margins">
-            <label for="q3">Płatność online</label>
-        </div>
-    </div>
-    <div class="inputs">
-        <input type="radio" id="q4" />
-        <div class="margins">
-            <label for="q4">Płatność online</label>
-        </div>
-    </div>
-</div> -->
     {% endblock content %}
 
     {% block footer %}
