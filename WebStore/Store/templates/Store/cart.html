@@ -5,7 +5,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,700&display=swap');
 
     :root {
-        --color-gold: #a0884c;
+        --color-gold: #DFBD69;
         --color-black: #000;
         --color-white: #FFF;
         --color-gray: #8D8D8D;
@@ -120,6 +120,8 @@
     .content {
         margin: 100px 20px 0px 20px;
         color: var(--color-white);
+        display: flex;
+        justify-content: center;
     }
 
     .content h5 {
@@ -159,10 +161,11 @@
     }
 
     .box-element {
-        box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+        box-shadow: #dfbe69c2 0 0 16px;
         background-color: var(--color-gold);
         border-radius: 4px;
         padding: 10px;
+        width: 70rem;
     }
 
     .quantity {
@@ -194,10 +197,10 @@
     }
 
     .space-btn a {
+        text-decoration: none;
         color: var(--color-black);
         cursor: pointer;
         font-size: 1.2rem;
-
     }
 
     .shop-btn {
@@ -242,7 +245,29 @@
         margin-left: 150px;
     }
 
+    @media (min-width: 768px) and (max-width: 1400px) {
+        .row {
+            margin-bottom: 120px;
+        }
+
+        .blur img {
+            height: 100%;
+        }
+
+        .box-element {
+            width: 50rem;
+        }
+    }
+
     @media screen and (max-width: 768px) {
+        .row {
+            margin-bottom: 80px;
+        }
+
+        .blur img {
+            height: 100%;
+        }
+
         .content {
             margin: 100px 0px 0px 20px;
             color: var(--color-white);
@@ -305,6 +330,96 @@
             margin-left: 0px;
             text-align: center;
         }
+
+        .content {
+            margin: 80px 15px 0px 15px;
+            color: var(--color-white);
+        }
+
+        .content h5 {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .content .margins {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        .cart-row {
+            display: flex;
+            align-items: flex-stretch;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ececec;
+        }
+
+        .product {
+            border-radius: 0 0 4px 4px;
+        }
+
+        .box-element {
+            box-shadow: #dfbe69c2 0 0 16px;
+            background-color: var(--color-gold);
+            border-radius: 4px;
+            padding: 10px;
+        }
+
+        .quantity {
+            display: inline-block;
+            font-weight: 700;
+            padding-right: 10px;
+        }
+
+        .chg-quantity {
+            width: 12px;
+            cursor: pointer;
+            display: block;
+            margin-top: 5px;
+            transition: .1s;
+        }
+
+        .chg-quantity:hover {
+            opacity: .6;
+        }
+
+        .space {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .space-btn {
+            background-color: var(--color-white);
+            padding: 5px;
+        }
+
+        .space-btn a {
+            text-decoration: none;
+            color: var(--color-black);
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .shop-btn {
+            padding-bottom: 5px;
+            padding: 5px;
+            background-color: var(--color-white);
+            width: 170px;
+            font-size: 15px;
+        }
+
+        .shop-btn a {
+            color: var(--color-black);
+            text-decoration: none;
+        }
+
+        .row-image {
+            width: 80px;
+        }
+
+        .box-element {
+            width: 100%;
+        }
     }
 </style>
 {% endblock style %}
@@ -314,7 +429,7 @@
     <h1><a href="{% url 'Store:index' %}">Website Logo</a></h1>
     <ul class="navul" id="navul">
         <li><a href="{% url 'Store:cart' %}"><i class="ri-shopping-cart-line"></i></a></li>
-        <p id="cart-total">0</p>
+        <p id="cart-total">2</p>
         <li><a href="{% url 'Store:account' %}"><i class="ri-account-circle-fill"></i></a></li>
     </ul>
 </div>
@@ -323,14 +438,14 @@
 {% block content %}
 <div class="blur">
     {% load static %}
-    <img src="{% static 'Store/gold-blur.png' %}" alt="image">
+    <img src="{% static 'Store/blur2.png' %}" alt="image">
 </div>
 
 <div class="content">
     <div class="row">
         <div class="box-element">
             <div class="shop-btn">
-                <a href="{% url 'Store:index' %}}">&#x2190; Continue Shopping</a>
+                <a href="{% url 'Store:index' %}">&#x2190; Kontynuj zakupy</a>
             </div>
             <br>
             <hr>
@@ -340,9 +455,9 @@
                     <h5>Produkty: <strong>2</strong></h5>
                 </div>
                 <div>
-                    <h5>Razem:<strong> 4200 PLN</strong></h5>
+                    <h5>Razem:<strong> 4000 PLN</strong></h5>
                 </div>
-                <div class="space-btn"><a href="{% url 'Store:checkout' %}}">Checkout</a></div>
+                <div class="space-btn"><a href="{% url 'Store:checkout' %}">Potwierdzenie</a></div>
             </div>
         </div>
 
@@ -359,7 +474,7 @@
             <div class="cart-row">
                 <div style="flex:2"><img class="row-image" src="{% static 'Store/gold-table2.jpg' %}"></div>
                 <div style="flex:2">
-                    <p>Product 1</p>
+                    <p>Produkt 1</p>
                 </div>
                 <div style="flex:1">
                     <p>2000 PLN</p>

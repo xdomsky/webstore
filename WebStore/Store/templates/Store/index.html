@@ -11,7 +11,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,700&display=swap');
 
     :root {
-        --color-gold: #a0884c;
+        --color-gold: #DFBD69;
         --color-black: #000;
         --color-white: #FFF;
         --color-gray: #8D8D8D;
@@ -29,7 +29,6 @@
 
     .blur {
         z-index: -999;
-        position: absolute;
         height: 100%;
         position: fixed;
         opacity: 75%;
@@ -143,10 +142,6 @@
         margin-top: 8rem;
     }
 
-    .text-3 h1 {
-        color: var(--color-gold);
-    }
-
     .text-1 {
         margin-top: 6rem;
     }
@@ -154,20 +149,31 @@
     .text h1 {
         font-size: 4rem;
         margin-bottom: 5rem;
-        color: var(--color-white);
+    }
+
+    .text-1 h1 {
+        color: var(--color-black);
+    }
+
+    .text-2 {
+        color: var(--color-black);
+    }
+
+    .text-3 h1 {
+        color: var(--color-gold);
     }
 
     .text p {
         font-size: 2rem;
-        color: var(--color-white);
+        color: var(--color-gray);
         width: 750px;
     }
 
     .text button {
         cursor: pointer;
         margin-top: 50px;
-        background-color: var(--color-white);
-        color: var(--color-black);
+        background-color: var(--color-black);
+        color: var(--color-white);
         outline: 0;
         border: none;
         width: 250px;
@@ -181,8 +187,28 @@
         font-size: 24px;
     }
 
+    .text-1 button a {
+        text-decoration: none;
+        color: var(--color-white);
+    }
+
+    .text-1 button a:visited {
+        color: var(--color-white);
+    }
+
     .text-2 button a {
         font-weight: 400;
+    }
+
+    .text-3 button {
+        cursor: pointer;
+        margin-top: 50px;
+        background-color: var(--color-gold);
+        color: var(--color-white);
+        outline: 0;
+        border: none;
+        width: 250px;
+        height: 65px;
     }
 
     .text-3 button a {
@@ -209,7 +235,7 @@
 
     .socials i {
         padding: 5px;
-        color: var(--color-white);
+        color: var(--color-gold);
     }
 
     footer {
@@ -240,7 +266,7 @@
         width: 450px;
         height: 35px;
         margin-top: 10px;
-        background-color: #ededed;
+        background-color: #E0E0E0;
         color: var(--color-gray);
         outline: 0;
         border: none;
@@ -252,7 +278,7 @@
         font-size: 16px;
         margin-top: 10px;
         width: 450px;
-        background-color: #ededed;
+        background-color: #E0E0E0;
         color: var(--color-gray);
         outline: 0;
         border: none;
@@ -277,13 +303,13 @@
     }
 
     .contact-us h1 {
-        color: var(--color-gold);
+        color: var(--color-black);
         font-weight: 500;
     }
 
     .contact-us p {
         font-size: 20px;
-        color: var(--color-gold);
+        color: var(--color-gray);
     }
 
     .contact-us i {
@@ -324,12 +350,20 @@
     }
 
     @media (min-width: 1024px) and (max-width: 1400px) {
+        .blur img {
+            height: 100%;
+        }
+
         .text p {
             width: 450px;
         }
     }
 
     @media screen and (max-width: 768px) {
+        .blur img {
+            height: 100%;
+        }
+
         i {
             font-size: 35px;
         }
@@ -436,7 +470,7 @@
     <h1><a href="{% url 'Store:index' %}">Website Logo</a></h1>
     <ul class="navul" id="navul">
         <li><a href="{% url 'Store:cart' %}"><i class="ri-shopping-cart-line"></i></a></li>
-        <p id="cart-total">0</p>
+        <p id="cart-total">2</p>
         <li><a href="{% url 'Store:account' %}"><i class="ri-account-circle-fill"></i></a></li>
     </ul>
 </div>
@@ -447,7 +481,7 @@
 <button onclick="topFunction()" id="btn-top"><i class="ri-arrow-up-line"></i></button>
 <div class="blur">
     {% load static %}
-    <img src="{% static 'Store/gold-blur.png' %}" alt="image">
+    <img src="{% static 'Store/blur2.png' %}" alt="image">
 </div>
 <div data-aos="fade-left" data-aos-duration="1000">
     <div class="container">
@@ -457,7 +491,7 @@
                 <p>Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem
                     IpsumLorem
                     IpsumLorem Ipsum</p>
-                <button><a>Zobacz Ofertę</a></button>
+                <button><a href="#product">Zobacz Ofertę &#x2193;</a></button>
             </div>
             <div class="picture">
                 {% load static %}
@@ -474,11 +508,11 @@
     </div>
 </div>
 <div data-aos="fade-right" data-aos-duration="1000">
-    <div class="container">
+    <div class="container" id="product">
         <div class="split">
             <div class="picture">
                 {% load static %}
-                <img src="{% static 'Store/test.png' %}" alt="image">
+                <img src="{% static 'Store/gray-table2.jpg' %}" alt="image">
             </div>
             <div class="text text-2">
                 <h1>Lorem Ipsum</h1>
@@ -502,7 +536,7 @@
             </div>
             <div class="picture">
                 {% load static %}
-                <img src="{% static 'Store/test2.png' %}" alt="image">
+                <img src="{% static 'Store/gold-table2.jpg' %}" alt="image">
             </div>
         </div>
     </div>
@@ -560,70 +594,6 @@
     function topFunction() {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
-    }
-
-    var updateBtns = document.getElementsByClassName('update-cart')
-
-    for (i = 0; i < updateBtns.length; i++) {
-        updateBtns[i].addEventListener('click', function () {
-            var productId = this.dataset.product
-            var action = this.dataset.action
-            console.log('productId:', productId, 'Action:', action)
-            console.log('USER:', user)
-
-            if (user == 'AnonymousUser') {
-                addCookieItem(productId, action)
-            } else {
-                updateUserOrder(productId, action)
-            }
-        })
-    }
-
-    function updateUserOrder(productId, action) {
-        console.log('User is authenticated, sending data...')
-
-        var url = '/update_item/'
-
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': csrftoken,
-            },
-            body: JSON.stringify({ 'productId': productId, 'action': action })
-        })
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                location.reload()
-            });
-    }
-
-    function addCookieItem(productId, action) {
-        console.log('User is not authenticated')
-
-        if (action == 'add') {
-            if (cart[productId] == undefined) {
-                cart[productId] = { 'quantity': 1 }
-
-            } else {
-                cart[productId]['quantity'] += 1
-            }
-        }
-
-        if (action == 'remove') {
-            cart[productId]['quantity'] -= 1
-
-            if (cart[productId]['quantity'] <= 0) {
-                console.log('Item should be deleted')
-                delete cart[productId];
-            }
-        }
-        console.log('CART:', cart)
-        document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
-
-        location.reload()
     }
 </script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
