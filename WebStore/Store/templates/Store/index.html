@@ -29,7 +29,6 @@
 
     .blur {
         z-index: -999;
-        height: 100%;
         position: fixed;
         opacity: 75%;
     }
@@ -251,6 +250,7 @@
         display: flex;
         justify-content: center;
         margin: 100px 0px 100px 0px;
+        cursor: pointer;
     }
 
     .socials i {
@@ -593,10 +593,11 @@
     <div class="container">
         <div class="split">
             <div class="text text-1">
-                <h1>Lorem Ipsum</h1>
+                <h1>{{Product1.ProductName}}</h1>
                 <p>Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem
                     IpsumLorem
                     IpsumLorem Ipsum</p>
+                <h2>{{Product1.ProductPrice}} PLN</h2>
                 <button><a href="#product">Zobacz Ofertę &#x2193;</a></button>
             </div>
             <div class="picture-container">
@@ -637,10 +638,11 @@
                 <img src="{% static 'Store/black-2.jpg' %}" alt="image">
             </div>
             <div class="text text-2">
-                <h1>Lorem Ipsum</h1>
+                <h1>{{Product2.ProductName}}</h1>
                 <p>Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem
                     IpsumLorem
                     IpsumLorem Ipsum</p>
+                <h2>{{Product2.ProductPrice}} PLN</h2>
                 <button><a>Dodaj do koszyka</a></button>
             </div>
         </div>
@@ -651,11 +653,12 @@
     <div class="container">
         <div class="split">
             <div class="text text-3">
-                <h1>Lorem Ipsum</h1>
+                <h1>{{Product1.ProductName}}</h1>
                 <p>Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem
                     IpsumLorem
                     IpsumLorem Ipsum</p>
-                <button data-product="{{product.id}}" data-action="add"><a>Dodaj do koszyka</a></button>
+                <h2>{{Product1.ProductPrice}} PLN</h2>
+                <button id="AddToCart"><a>Dodaj do koszyka</a></button>
             </div>
             <div class="picture">
                 {% load static %}

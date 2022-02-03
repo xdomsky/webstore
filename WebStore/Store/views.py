@@ -1,5 +1,7 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from .models import kontakt
+from .models import Product
+from .models import Cart
 from django.contrib.auth.models import User
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import authenticate, logout
@@ -10,7 +12,13 @@ from .forms import CreateUserForm
 
 # Create your views here.
 def index(request):
-    context = {}
+    queryset = Product.objects.all()
+
+    context = {
+        "Product1": queryset.first(),
+        "Product2": queryset.last()
+    }
+    
     if request.POST:
         new_msg = kontakt.objects.create(name=request.POST['name'], email=request.POST['email'], phone=request.POST['phone'], msg=request.POST['msg'])
         new_msg.save()
@@ -61,4 +69,11 @@ def checkout(request):
     return render(request, 'Store/checkout.html', {})
 
 def cart(request):
-    return render(request, 'Store/cart.html', {})
+    queryset = Product.objects.all()
+
+    context = {
+        "Product1": queryset.first(),
+        "Product2": queryset.last()
+    }
+
+    return render(request, 'Store/cart.html', context)

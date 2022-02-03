@@ -23,7 +23,6 @@
 
     .blur {
         z-index: -999;
-        position: absolute;
         position: fixed;
         opacity: 75%;
     }
@@ -455,7 +454,7 @@
                     <h5>Produkty: <strong>2</strong></h5>
                 </div>
                 <div>
-                    <h5>Razem:<strong> 4000 PLN</strong></h5>
+                    <h5>Razem: <strong><span name="final-price">{{Product1.ProductPrice}}</span> PLN</strong></h5>
                 </div>
                 <div class="space-btn"><a href="{% url 'Store:checkout' %}">Potwierdzenie</a></div>
             </div>
@@ -474,33 +473,62 @@
             <div class="cart-row">
                 <div style="flex:2"><img class="row-image" src="{% static 'Store/gold-table2.jpg' %}"></div>
                 <div style="flex:2">
-                    <p>Produkt 1</p>
+                    <p>{{Product1.ProductName}}</p>
                 </div>
                 <div style="flex:1">
-                    <p>2000 PLN</p>
+                    <p><span id="price">{{Product1.ProductPrice}}</span> PLN</p>
                 </div>
                 <div style="flex:1">
-                    <p class="quantity">2</p>
+                    <p class="quantity" id="qua">1</p>
                     <div class="quantity">
-                        <img class="chg-quantity" src="{% static 'Store/arrow_up2.png' %}"">
+                        <img class="chg-quantity" src="{% static 'Store/arrow_up2.png' %}" id="qua-up">
 
-                        <img class=" chg-quantity" src="{% static 'Store/arrow_down2.png' %}"">
+                        <img class=" chg-quantity" src="{% static 'Store/arrow_down2.png' %}" id="qua-down">
                     </div>
                 </div>
                 <div style=" flex:1">
-                        <p>4000 PLN</p>
-                    </div>
+                    <p><span name="final-price">{{Product1.ProductPrice}}</span> PLN</p>
                 </div>
-
             </div>
+
         </div>
     </div>
-    {% endblock content %}
+</div>
+{% endblock content %}
 
-    {% block footer %}
-    <footer>
-        <div>
-            <p>© 2021 Nazwa firmy Wszelkie prawa zastrzeżone</p>
-        </div>
-    </footer>
-    {% endblock footer %}
+{% block script %}
+<script>
+    document.getElementById("qua-up").addEventListener("click", iloscup);
+    document.getElementById("qua-down").addEventListener("click", iloscdown);
+    function iloscup() {
+        let ilosc = parseInt(document.getElementById("qua").textContent);
+        document.getElementById("qua").innerText = ilosc + 1;
+
+        var result = document.getElementsByName("final-price");
+
+        result.forEach(element => {
+            element.innerText = parseInt(document.getElementById("price").textContent) * parseInt(document.getElementById("qua").textContent);
+        });
+    };
+    function iloscdown() {
+        let ilosc = parseInt(document.getElementById("qua").textContent);
+        if (ilosc > 1) {
+            document.getElementById("qua").innerText = ilosc - 1;
+
+            var result = document.getElementsByName("final-price");
+
+            result.forEach(element => {
+                element.innerText = parseInt(document.getElementById("price").textContent) * parseInt(document.getElementById("qua").textContent);
+            });
+        }
+    };
+</script>
+{% endblock script %}
+
+{% block footer %}
+<footer>
+    <div>
+        <p>© 2021 Nazwa firmy Wszelkie prawa zastrzeżone</p>
+    </div>
+</footer>
+{% endblock footer %}
